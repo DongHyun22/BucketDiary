@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+        <item android:id="@+id/food"
+            android:title="Food"
+            android:icon="@drawable/ic_baseline_food_24"/>
+        <item android:id="@+id/movie"
+            android:title="Movie"
+            android:icon="@drawable/ic_baseline_movie_24"/>
+        <item android:id="@+id/travel"
+            android:title="Travel"
+            android:icon="@drawable/ic_baseline_travel_24"/>
+
+    </group>
+</menu>

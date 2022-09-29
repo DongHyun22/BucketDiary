@@ -3,9 +3,12 @@ package com.example.bucketdiary
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.View
+import android.widget.Button
 import androidx.core.view.GravityCompat
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_main.view.*
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -17,16 +20,21 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val ft = supportFragmentManager.beginTransaction()
+        ft.replace(R.id.main_frame, CalendarActivity()).commit()
 
         btn_navi!!.setOnClickListener {
             layout_drawer!!.openDrawer(GravityCompat.START)
         }
+        btn_home.setOnClickListener()
+        {
+            homeButton()
+        }
 
         naviView!!.setNavigationItemSelectedListener(this)
 
-
-
     }
+
 
 //    override fun onDestroy() {
 //        mBinding = null
@@ -36,6 +44,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 //        mBinding = ActivityMainBinding.inflate(layoutInflater)
 //        setContentView(binding.root)
 //    }
+    
+    private fun homeButton(){
+        val ft = supportFragmentManager.beginTransaction()
+        ft.replace(R.id.main_frame, CalendarActivity()).commit()
+    }
 
     private fun setFrag(fragNum : Int) {
         val ft = supportFragmentManager.beginTransaction()
@@ -76,4 +89,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         layout_drawer.closeDrawers()
         return false
     }
+
+
+
 }
